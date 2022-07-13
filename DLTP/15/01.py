@@ -6,8 +6,6 @@ Date：
 
 import argparse
 import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
 
 def getargs():
     """
@@ -20,24 +18,16 @@ def getargs():
     return argparser.parse_args()
 
 
-def getData():
-    x = np.random.rand(10, 2)
-    y = np.random.rand(10, 2) + 1
-    return x ,y
-
-def plotData(x,y):
-    """
-
-    :return:
-    """
-    plt.scatter(x[:, 0], x[:, 1],c='r', marker='x')
-    plt.scatter(y[:, 0], y[:, 1], c='g', marker='x')
-    plt.show()
-
 def main():
     """the entrance of this file"""
-    x,y = getData()
-    plotData(x, y)
+    tf.compat.v1.disable_v2_behavior()
+    t1 = tf.compat.v1.placeholder(tf.float64,name='t1')
+    t2 = tf.compat.v1.placeholder(tf.float64,name='t2')
+    tf_add = tf.add(t1,t2)
+    with tf.compat.v1.Session() as sess:
+        r = sess.run(tf_add,feed_dict={t1:10,t2:10})
+        print(r)
+
 
 
 if __name__ == '__main__':

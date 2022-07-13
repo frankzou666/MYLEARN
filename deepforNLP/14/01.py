@@ -5,9 +5,9 @@ Date：
 """
 
 import argparse
+import keras
+from keras.layers import Embedding,Conv1D,Flatten,Dense,MaxPool1D
 import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
 
 def getargs():
     """
@@ -20,24 +20,19 @@ def getargs():
     return argparser.parse_args()
 
 
-def getData():
-    x = np.random.rand(10, 2)
-    y = np.random.rand(10, 2) + 1
-    return x ,y
-
-def plotData(x,y):
-    """
-
-    :return:
-    """
-    plt.scatter(x[:, 0], x[:, 1],c='r', marker='x')
-    plt.scatter(y[:, 0], y[:, 1], c='g', marker='x')
-    plt.show()
-
 def main():
     """the entrance of this file"""
-    x,y = getData()
-    plotData(x, y)
+    model = keras.models.Sequential()
+    # embedding
+    model.add(Embedding(input_dim=(100,),output_dim=(10,)))
+    # CNN
+    model.add(Conv1D())
+    model.add(MaxPool1D())
+    # CNN output is 2D,?
+    model.add(Flatten())
+    model.add(Dense())
+    model.compile()
+    model.summary()
 
 
 if __name__ == '__main__':

@@ -90,10 +90,7 @@ def process_docs(directory, vocab, is_train):
     return documents
 
 
-def create_tokenizer(lines):
-    tokenizer = Tokenizer()
-    tokenizer.fit_on_texts(lines)
-    return tokenizer
+
 
 def encode_docs(tokenizer, max_length, docs):
     encoded = tokenizer.texts_to_sequences(docs)
@@ -108,6 +105,12 @@ def load_clean_dataset(vocab, is_train):
     docs = neg + pos
     labels = array([0 for _ in range(len(neg))] + [1 for _ in range(len(pos))])
     return docs, labels
+
+ ##  how to encode docs.
+def create_tokenizer(lines):
+    tokenizer = Tokenizer()
+    tokenizer.fit_on_texts(lines)
+    return tokenizer
 
 
 def encode_docs(tokenizer, max_length, docs):

@@ -5,9 +5,8 @@ Date：
 """
 
 import argparse
-import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
+import glob
+import os
 
 def getargs():
     """
@@ -20,24 +19,27 @@ def getargs():
     return argparser.parse_args()
 
 
-def getData():
-    x = np.random.rand(10, 2)
-    y = np.random.rand(10, 2) + 1
-    return x ,y
-
-def plotData(x,y):
+def mktest(src,dst):
     """
-
+     copy src direct to des directory
+    :param src:
+    :param dst:
     :return:
     """
-    plt.scatter(x[:, 0], x[:, 1],c='r', marker='x')
-    plt.scatter(y[:, 0], y[:, 1], c='g', marker='x')
-    plt.show()
+    for item in os.listdir(src):
+        if os.path.isdir(os.path.join(src,item)):
+            os.mkdir(os.path.join(dst,item))
+            mktest(os.path.join(src,item), os.path.join(dst,item))
+        else:
+            os.path.
 
 def main():
     """the entrance of this file"""
-    x,y = getData()
-    plotData(x, y)
+    src = r'c:\temp\119'
+    dst = r'c:\temp\118'
+    mktest(src, dst)
+
+
 
 
 if __name__ == '__main__':

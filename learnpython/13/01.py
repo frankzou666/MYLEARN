@@ -5,9 +5,7 @@ Date：
 """
 
 import argparse
-import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 def getargs():
     """
@@ -20,24 +18,29 @@ def getargs():
     return argparser.parse_args()
 
 
-def getData():
-    x = np.random.rand(10, 2)
-    y = np.random.rand(10, 2) + 1
-    return x ,y
-
-def plotData(x,y):
-    """
-
-    :return:
-    """
-    plt.scatter(x[:, 0], x[:, 1],c='r', marker='x')
-    plt.scatter(y[:, 0], y[:, 1], c='g', marker='x')
-    plt.show()
-
 def main():
     """the entrance of this file"""
-    x,y = getData()
-    plotData(x, y)
+    x = 10
+    """
+    while True:
+        if x<10: break
+        print(x)
+        x = x-1
+    """
+    """
+    for i in range(5):
+        print(i)
+    else:
+        print('good')
+    """
+    """
+    # how to use enumerate
+    x ='hello'
+    for i,j in enumerate(x):
+        print(i)
+        print(j)
+    """
+    
 
 
 if __name__ == '__main__':
