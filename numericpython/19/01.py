@@ -1,6 +1,6 @@
 """
 Author:
-Purpose:
+Purpose: chapter 19 optimization code.
 Date：
 """
 
@@ -18,18 +18,9 @@ def getargs():
     return argparser.parse_args()
 
 
-def Chager(x, y):
-     x = 10
-     y.append('hello')
-     return x,y
-
 def main():
     """the entrance of this file"""
-    a = 5
-    b = ['first']
-    print(type(Chager(a,b)))
-    print(Chager(a, b))
-
+    pass
 
 
 if __name__ == '__main__':

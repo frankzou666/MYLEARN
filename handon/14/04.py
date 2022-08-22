@@ -5,7 +5,8 @@ Date：
 """
 
 import argparse
-
+import tensorflow as tf
+from tensorflow import keras
 
 def getargs():
     """
@@ -18,18 +19,9 @@ def getargs():
     return argparser.parse_args()
 
 
-def Chager(x, y):
-     x = 10
-     y.append('hello')
-     return x,y
-
 def main():
     """the entrance of this file"""
-    a = 5
-    b = ['first']
-    print(type(Chager(a,b)))
-    print(Chager(a, b))
-
+    model = keras.applications.resnet50.ResNet50(weights="imagenet")
 
 
 if __name__ == '__main__':
