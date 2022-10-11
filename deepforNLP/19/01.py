@@ -32,7 +32,7 @@ def generate_seq(model, tokenizer, seed_text, n_words):
    for _ in range(n_words):
        encoded = tokenizer.texts_to_sequences([in_text])[0]
        encoded = array(encoded)
-       yhat = model.predict_classes(encoded, verbose=0)
+       yhat = model.predict(encoded, verbose=0)
        out_word = ''
        for word, index in tokenizer.word_index.items():
            if index == yhat:
