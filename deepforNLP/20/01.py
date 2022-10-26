@@ -97,11 +97,12 @@ def getModel(vocab_size,seq_length):
     model = Sequential()
     model.add(Embedding(vocab_size,50,input_length=seq_length))
     model.add(LSTM(100,return_sequences=True))
-    model.add(LSTM(100))
-    model.add(Dense(100,activation='relu'))
+    model.add(LSTM(1000))
+    model.add(Dense(1000,activation='relu'))
     model.add(Dense(vocab_size, activation='softmax'))
     model.compile(loss='categorical_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
     model.summary()
+
     return  model
 
 
@@ -112,10 +113,10 @@ def generate_seq(model, tokenizer, seq_length, seed_text, n_words):
     for _ in range(n_words):
         encoded = tokenizer.texts_to_sequences([in_text])[0]
         encoded = pad_sequences([encoded], maxlen=seq_length, truncating='pre')
-        yhat = model.predict_classes(encoded, verbose=0)
+        yhat = model.predict(encoded, verbose=0)
         out_word = ''
         for word, index in tokenizer.word_index.items():
-            if index == yhat:
+            if index in yhat:
                  out_word = word
                  break
 
@@ -136,15 +137,16 @@ def main():
     y = data[:,-1]
     y = to_categorical(y,num_classes=vocab_size)
     seq_length = X.shape[1]
-    #model = getModel(vocab_size,seq_length)
-    #model.fit(X,y,batch_size=2048,epochs=10)
-    #model.save('model.h5')
-    model = load_model('model.h5')
+    model = getModel(vocab_size,seq_length)
+    model.fit(X,y,batch_size=2048,epochs=10)
+    model.save('model.h5')
+    #model = load_model('model.h5')
     tokenizer = pickle.load(open('tokenizer.wbl', 'rb'))
     seed_text = lines[random.randint(0, len(lines))]
     print(seed_text)
-    generated = generate_seq(model, tokenizer, seq_length, seed_text, 50)
-    print(generated )
+    generated = generate_seq(model, tokenizer, seq_length , seed_text, 50)
+    print('result:')
+    print(generated)
 
 
 

@@ -27,6 +27,7 @@ def main():
     model.add(nn.Conv2D(10, kernel_size=3, activation='relu'))
     model.add(nn.MaxPool2D(pool_size=2, strides=2))
     model.initialize()
+    print('hello')
 
 
 

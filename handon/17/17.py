@@ -10,6 +10,8 @@ import argparse
 
 from tensorflow import keras
 from keras.datasets.mnist import  load_data
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def getargs():
     """
@@ -35,7 +37,7 @@ def main():
     autoencoder = keras.models.Sequential([encoder, decoder])
     autoencoder.compile(loss="binary_crossentropy", optimizer=keras.optimizers.SGD(lr=0.1))
     autoencoder.summary()
-    autoencoder.fit(Xtrain,Ytrain,epochs=10,valid)
+    autoencoder.fit(Xtrain,Ytrain,epochs=10)
 
 if __name__ == '__main__':
     main()

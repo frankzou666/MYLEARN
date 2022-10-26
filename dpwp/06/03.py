@@ -8,14 +8,17 @@ Date：
 
 import argparse
 import numpy as np
-import tensorflow.keras as keras
-from  tensorflow.keras import layers
+import keras as keras
+from  keras import layers
+from tensorflow import keras
 from keras.datasets.imdb import  load_data
-from tensorflow.keras.preprocessing import sequence
+#from keras.preprocessing import sequence
 import matplotlib.pyplot as plt
+import ssl
 
 
 
+ssl._create_default_https_context = ssl._create_unverified_context
 
 max_features = 5000
 max_len = 500
@@ -38,8 +41,8 @@ def loadImdb():
     print(len(x_train), 'train sequences')
     print(len(x_test), 'test sequences')
     print('Pad sequences (samples x time)')
-    x_train = sequence.pad_sequences(x_train, maxlen=max_len)
-    x_test = sequence.pad_sequences(x_test, maxlen=max_len)
+    x_train =  keras.preprocessing.sequence.pad_sequences(x_train, maxlen=max_len)
+    x_test = keras.preprocessing.sequence.pad_sequences(x_test, maxlen=max_len)
     print('x_train shape:', x_train.shape)
     print('x_test shape:', x_test.shape)
     return  x_train, y_train, x_test, y_test
@@ -53,6 +56,7 @@ def plotHistory(history):
     epochs = range(1, len(acc) + 1)
     plt.plot(epochs, acc, 'bo', label='Training acc')
     plt.plot(epochs, val_acc, 'b', label='Validation acc')
+    plt.legend()
     plt.show()
 
 def main():
@@ -69,6 +73,7 @@ def main():
                   loss='binary_crossentropy',
                   metrics=['acc'])
     history = model.fit(x_train,y_train,epochs=10,batch_size=128,validation_split=0.2)
+    plotHistory(history)
 
 if __name__ == '__main__':
     main()
