@@ -56,7 +56,9 @@ def getMultiInputModel():
 def main():
     x = np.random.random((1000,64))
     y = np.random.random((1000,10))
-    model = getMultiInputModel()
+    model = getCustomModel()
+    model.summary()
+    model.fit(x,y,epochs=128,batch_size=64)
 
 
 if __name__ == '__main__':

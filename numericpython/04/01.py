@@ -42,9 +42,10 @@ def fun1():
     ax.set_title('my god')
     ax.grid(linestyle=':', color='gray')
     ax.annotate('my', xy=(1, 10), xytext=(+2,+2),  textcoords="offset points", arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=.9"))
-    ax.legend(bbox_to_anchor=(1, 1))
+    ax.legend(bbox_to_anchor=(1, 5))
     # show figure
     fig.show()
+    print('hello')
 
 
 def fun2():

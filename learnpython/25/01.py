@@ -1,14 +1,10 @@
-
 """
 Author:
 Purpose:
 Date：
 """
-
-
 import argparse
-import re
-
+from testmodule import *
 def getargs():
     """
     :arg
@@ -17,10 +13,13 @@ def getargs():
     """
     argparser = argparse.ArgumentParser(description='say')
     argparser.add_argument('--name', default='world!', help='name message')
-    return  argparser.parse_args()
+    return argparser.parse_args()
+
 
 def main():
-    pass
+    """the entrance of this file"""
+    print(_b)
+
 
 if __name__ == '__main__':
     main()
