@@ -11,7 +11,8 @@ import socket
 import datetime
 import os
 import _thread as thread
-
+import sys
+import threading
 
 WORKS = []
 
@@ -31,7 +32,8 @@ def handelconnection(connection):
         data= connection.recv(1024)
         if not data:
             break
-        print(data)
+        print('tid:%s,data:%s'%(str(threading.currentThread().getName()),str(data)))
+        #connection.close()
 
 
 def dispatcher(sc):

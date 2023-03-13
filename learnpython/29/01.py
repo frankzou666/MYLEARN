@@ -15,6 +15,10 @@ class Person():
         return 'default string name: ' +self.name
 
 class Manager( Person ):
+    """
+
+    """
+    # how to call superclass constuctor
     def __init__(self ,name ,job=None ,pay=0):
         Person.__init__(self,name,'mgr')
     def getLastName(self):
@@ -29,7 +33,10 @@ class Sub(Super):
     pass
 
 def main():
-    s1 = Sub()
+    a = Person("test")
+    Person.classname="bbb"
+    b = Person("testb")
+    print(b.classname)
 
 
 if __name__ == '__main__':

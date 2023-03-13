@@ -22,14 +22,14 @@ def getargs():
 
 def main():
     HOST='127.0.0.1'
-    PORT =18888
+    PORT =10001
     sc = socket.socket()
     sc.connect((HOST,PORT))
     #send bytes
     sc.send(bytearray('hello11',encoding='utf8'))
     #recv from server
-    data = sc.recv(1024)
-    print(data)
+    sc.close()
+
     sc.close()
 
 if __name__ == '__main__':
