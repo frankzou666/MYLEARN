@@ -3,6 +3,8 @@ Author:
 Purpose:
 Date："""
 import argparse
+import scipy
+import sympy
 
 
 def getargs():
@@ -16,21 +18,22 @@ def getargs():
     return argparser.parse_args()
 
 
-class Wrapper():
-    def __init__(self, object):
-        self.wrapped = object
-
-    def __getattr__(self, item):
-        # getattr is a built-in funcion
-        return getattr(self.wrapped, item)
-
+def main1():
+    """the entrance of this file"""
+    x = sympy.Symbol("x")
+    f = 2*sympy.sqrt(1-x**2)
+    a,b = -2,2
+    value = sympy.integrate(f,(x,a,b))
+    print(value)
 
 def main():
-    """the entrance of this file"""
-    x = Wrapper([1, 2, 3])
-    x.append(1)
-    print(x.wrapped)
+   # s = sympy.symbols("s")
+    a,t,w = sympy.symbols("a,t,omega")
+    f = sympy.exp(-a*t**2)
+    F = sympy.fourier_transform(f,t,w)
+    print(F)
 
 
 if __name__ == '__main__':
     main()
+

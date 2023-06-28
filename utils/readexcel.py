@@ -8,6 +8,7 @@ import argparse
 import xlrd
 
 
+
 def getargs():
     """
     :arg
@@ -21,8 +22,8 @@ def getargs():
 
 def main():
     """the entrance of this file"""
-    file_path = r'c:\1\\趣播-银行卡.xlsx'
-    sql_file = r'c:\1\\趣播-银行卡.sql'
+    file_path = 'data.xlsx'
+    sql_file =  'data.sql'
     data = xlrd.open_workbook(file_path)
     table = data.sheets()[0]
     file = open(sql_file,'w',encoding='utf8')

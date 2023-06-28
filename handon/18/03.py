@@ -4,6 +4,8 @@ Purpose:
 Date："""
 import argparse
 
+import numpy as np
+
 
 def getargs():
     """
@@ -16,21 +18,19 @@ def getargs():
     return argparser.parse_args()
 
 
-class Wrapper():
-    def __init__(self, object):
-        self.wrapped = object
-
-    def __getattr__(self, item):
-        # getattr is a built-in funcion
-        return getattr(self.wrapped, item)
-
-
 def main():
     """the entrance of this file"""
-    x = Wrapper([1, 2, 3])
-    x.append(1)
-    print(x.wrapped)
+    vo = ['good','hello','word']
+    vodict = dict((item,1) for item in vo)
+    nstring=['word']
+    new_string = [0 for _ in range(len(vodict))]
+    new_dict = {}
+    for item in nstring:
+         if item in vo:
+             new_string[vo.index(item)]=1
 
+    new_dict= dict((k,v ) for (k,v) in zip(vo,new_string))
+    print(new_dict)
 
 if __name__ == '__main__':
     main()

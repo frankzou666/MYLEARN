@@ -13,12 +13,16 @@ import  matplotlib.pyplot as plt
 import tensorflow as tf
 import sys
 import random
+import ssl
 from keras.applications import inception_v3
 from keras import backend as K
 import scipy
-from keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
+
+
 
 tf.compat.v1.disable_eager_execution()
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def resize_img(img, size):
     img = np.copy(img)
@@ -56,6 +60,7 @@ def deprocess_image(x):
 
 
 def main():
+    from keras import backend as K
     K.set_learning_phase = 0
     model = inception_v3.InceptionV3(weights='imagenet',include_top=False)
     # You can list all layer names using `model.summary()`.
@@ -108,7 +113,7 @@ def main():
             x += step * grad_values
         return x
 
-    step = 0.01  # Gradient ascent step size
+    step = 0.5  # Gradient ascent step size
     num_octave = 3  # Number of scales at which to run gradient ascent
     octave_scale = 1.4  # Size ratio between scales
     iterations = 20  # Number of ascent steps per scale
@@ -118,7 +123,7 @@ def main():
     max_loss = 10.
 
     # Fill this to the path to the image you want to use
-    base_image_path = 'c:\\1\\cat.1502.jpg'
+    base_image_path = 'Screen Shot 2023-03-30 at 15.04.17.png'
 
     # Load the image into a Numpy array
     img = preprocess_image(base_image_path)

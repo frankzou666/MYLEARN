@@ -1,9 +1,10 @@
+
 """
 Author:
-Purpose:
+Purpose: ftplib client
 Date："""
+from ftplib import FTP
 import argparse
-
 
 def getargs():
     """
@@ -16,20 +17,12 @@ def getargs():
     return argparser.parse_args()
 
 
-class Wrapper():
-    def __init__(self, object):
-        self.wrapped = object
-
-    def __getattr__(self, item):
-        # getattr is a built-in funcion
-        return getattr(self.wrapped, item)
-
-
 def main():
     """the entrance of this file"""
-    x = Wrapper([1, 2, 3])
-    x.append(1)
-    print(x.wrapped)
+    userinfo = ('lutz','Pswd?')
+    sitename = 'ftp.rmi.net'
+    connection = FTP(sitename,timeout=20)
+    connection.login(userinfo)
 
 
 if __name__ == '__main__':

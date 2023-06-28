@@ -27,7 +27,7 @@ class  Myexption(Exception):
 def fun1():
     x = 'spam'
     try:
-        y = x[4]
+        y = x[3]
     except  IndexError as e:
         print('from IndexError')
         raise 
