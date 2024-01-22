@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ch103 form</title>
+</head>
+<body>
+
+    <!----
+    form 元素学习
+    form最重的两个属性action表示发送到哪个地址和method表示form提交到服务器的请求
+    如果border没有设置, form在页面上看不到
+    input表示发送数据的类型
+    -->
+   <form  action="fun1" method="post">
+     <!--一定要有那么name属性，否则不会发给服务器-->
+     昵称: <input type="text" name="username" /><br>
+     <!--type=password属性，不显示明文-->
+     密码: <input type="password" name="password"/><br>
+     <!--type=radio，通过name表示几个radio是不相容的关系，value表示发送的值，只能显示一个
+     radio和checkbox如果不选，则都是发送第一个值给服务器
+     -->
+     性别: <input type="radio" name="gender" value="boy" checked />男
+          <input type="radio" name="gender" value="girl"/>女
+     <br>
+     <!--type=checkbox，多选，通过name表示发送给服务器是一个数组，value属性-->
+     爱好: <input type="checkbox" name="habbit" value="basketball"/>蓝球
+          <input type="checkbox" name="habbit" value="football" checked/>足球
+          <input type="checkbox" name="habbit" value="paiball"/>排球
+
+     <br>
+
+     <!--下拉框-->
+     星座: <select name="start">
+            <option value="1">金星</option>
+            <option value="2" selected>火星</option>
+            <option value="3" >水星</option>
+          </select>
+
+     <br>
+
+     <!-- textarea 默认只有2行,rows,cols表示输入多少行-->
+     备注: <textarea name="remark" rows="4" cols="50"></textarea>
+
+     <br>
+     <input type="reset" value="重 置" />
+     <input type="submit" value="注 册" />
+
+     <!-- 如果没有button，表示没有任何功能的-->
+     <input type="button" value="注 册1" />
+
+
+   </form>
+
+
+
+</body>
+</html>

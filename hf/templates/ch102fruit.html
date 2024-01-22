@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ch1012fruit table</title>
+    <script type="text/javascript" src="/static/js/fruit.js"></script>
+</head>
+<body>
+
+
+    <table id="tblFruit" border="1" width="400px" cellspacing="0" cellpadding="4px">
+       <!-- -->
+       <tr>
+           <!-- th会把文本居本并加粗-->
+           <th>名称</th>
+           <th>单价</th>
+           <th>数量</th>
+           <th >小计</th>
+           <th>操作</th>
+       </tr>
+        <!-- tr 表示行-->
+       <tr class="fruitTr" align="center">
+           <td>苹果</td>
+           <td  class="pricePer">10</td>
+           <td>8</td>
+           <td class="subTotal">75</td>
+           <!-- 使用img元素来表示删除图标，也可以使用a元素来处理-->
+           <td ><img  class="delImage" src="/static/imgs/img.png" width="25px" height="22px"></td>
+
+       </tr >
+       <tr class="fruitTr" align="center">
+           <td>梨子</td>
+           <td class="pricePer">3</td>
+           <td>60</td>
+           <td class="subTotal">120</td>
+           <td><img class="delImage" src="/static/imgs/img.png" width="25px" height="22px"></td>
+       </tr>
+       <tr class="fruitTr" align="center">
+           <td>桔子</td>
+           <td class="pricePer">3</td>
+           <td>15</td>
+           <td class="subTotal">36</td>
+            <td><img class="delImage" src="/static/imgs/img.png" width="25px" height="22px"></td>
+       </tr>
+
+       <tr align="center">
+           <!--跨4列存在-->
+           <td>总计</td>
+           <td class="totalPrice" colspan="4">3</td>
+       </tr>
+
+
+   </table>
+   <hr/>
+    <table>
+        <tr>
+            <td>名称:<input type="text" id="fname"></td>
+        </tr>
+         <tr>
+            <td>单价:<input type="text" id="fpricePer"></td>
+        </tr>
+        <tr>
+            <td>数量:<input type="text" id="fcount"></td>
+        </tr>
+
+        <tr>
+            <th><input type="button" id="confirmBtn" value="提交"></th>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>

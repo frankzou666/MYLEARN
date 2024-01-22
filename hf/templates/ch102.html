@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ch1012 table</title>
+</head>
+<body>
+   <!-- table 元素学习 -->
+   <table border="1" width="400px" cellspacing="0" cellpadding="4px">
+       <!-- -->
+       <tr>
+           <!-- th会把文本居本并加粗-->
+           <th>姓名</th>
+           <th>年龄</th>
+           <th>出生地</th>
+       </tr>
+        <!-- tr 表示行-->
+       <tr align="center">
+           <td >张三</td>
+           <td>15</td>
+           <td>上海</td>
+       </tr >
+       <tr align="center">
+           <!--这一行挤掉了，下一行就不能有姓名了-->
+           <td rowspan="2">李四</td>
+           <td>23</td>
+           <td>湖南</td>
+       </tr>
+       <tr align="center">
+
+           <td>22</td>
+           <td>广东</td>
+       </tr>
+
+
+   </table>
+   <hr>
+
+    <table border="1" width="400px" cellspacing="0" cellpadding="4px">
+       <!-- -->
+       <tr>
+           <!-- th会把文本居本并加粗-->
+           <th>名称</th>
+           <th>单价</th>
+           <th>数量</th>
+           <th>小计</th>
+           <th>操作</th>
+       </tr>
+        <!-- tr 表示行-->
+       <tr align="center">
+           <td>苹果</td>
+           <td>15</td>
+           <td>5</td>
+           <td>75</td>
+           <!-- 使用img元素来表示删除图标，也可以使用a元素来处理-->
+           <td><img src="/static/imgs/img.png" width="25px" height="22px"></td>
+
+       </tr >
+       <tr align="center">
+           <td>梨子</td>
+           <td>2</td>
+           <td>60</td>
+           <td>120</td>
+           <td><img src="/static/imgs/img.png" width="25px" height="22px"></td>
+       </tr>
+       <tr align="center">
+           <td>桔子</td>
+           <td>3</td>
+           <td>12</td>
+           <td>36</td>
+           <td><img src="/static/imgs/img.png" width="25px" height="22px"></td>
+       </tr>
+
+       <tr align="center">
+           <!--跨4列存在-->
+           <td>总计</td>
+           <td colspan="4">3</td>
+       </tr>
+
+
+   </table>
+
+
+
+
+</body>
+</html>

@@ -7,14 +7,17 @@ import tensorflow as tf
 def getSequentail():
     X = np.random.randint(1, 10, (100, 10))
     y = np.random.randint(1, 10, (100, 1))
-    #define
+    #define model
     model = keras.models.Sequential()
+    # add layers ,the output layer activation function is important, regression(none),binary(sigmoid),
+    # multiclass (softmax)
     model.add(Dense(32,input_shape=(100,10)))
     model.add(Dense(1,activation='sigmoid'))
-    #compile
-    model.compile(loss='binary_crossentropy',optimizer='rmsprop')
-    #fit
-    #model.fit(X,y,batch_size=32,epochs=16)
+    #compile，loss,optimizer(rmsprop,adam,sgd),metric
+    # you can define a instance object for optimizer
+    model.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
+    #fit，verbose control the output
+    history = model.fit(X,y,batch_size=32,epochs=16)
     print(model.summary())
     return  model
 
@@ -33,11 +36,14 @@ def add10(x):
 
 
 def main2():
-
+    #we first define input later
     inputlayer = keras.layers.Input(shape=(100,1))
+    #connect each layer
     lstm1 = keras.layers.LSTM(10)(inputlayer)
     visible = keras.layers.Dense(32,activation='relu')(lstm1)
     outputlayer =  keras.layers.Dense(1,activation='sigmoid')(visible)
+
+    # create model, we only get input layer name and the output layer name
     model = keras.models.Model(inputlayer,outputlayer)
     model.summary()
 

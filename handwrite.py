@@ -19,7 +19,7 @@ import os
 from PIL import EpsImagePlugin
 
 #download from https://www.ghostscript.com/download/gsdnld.html
-EpsImagePlugin.gs_windows_binary='C:\\Program Files\\gs\\gs9.55.0\\bin\\gswin64c.exe'
+#EpsImagePlugin.gs_windows_binary='C:\\Program Files\\gs\\gs9.55.0\\bin\\gswin64c.exe'
 
 
 def getargs():

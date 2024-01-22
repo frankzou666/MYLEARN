@@ -1,0 +1,25 @@
+
+         /* 这里是css 代码，comment */
+         /* 元素选择器，值=value; 注意后面分号*/
+         body{
+             margin: 8px;
+         }
+         p{
+             color:red;
+         }
+         .f20{
+             font-size: 20px;
+             margin: 0 20px;
+         }
+         #id4{
+             background-color: lightgrey;
+             font-size: 24px;
+             font-style: italic;
+             font-family: "Apple Color Emoji";
+             margin-left: auto;
+         }
+
+         /* 组合选择器 */
+         div p{
+             color: blue;
+         }

@@ -14,10 +14,13 @@ def getargs():
     argparser.add_argument('--name', default='world!', help='name message')
     return argparser.parse_args()
 
+class MyString(Exception):
+    pass
 
 def main():
     """the entrance of this file"""
-    pass
+    mystring="excpetion string"
+    raise MyString(mystring)
 
 
 if __name__ == '__main__':

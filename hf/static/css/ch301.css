@@ -1,0 +1,36 @@
+ body{
+     margin: 0;
+     padding: 0;
+     background-color: lightgray;
+
+
+ }
+
+ #div_contrainer{
+     margin-left: 5%;
+     margin-right: 5%;
+
+ }
+ #div_head {
+     background-color: aqua;
+     height: 10%;
+ }
+
+ #div_menu{
+
+     background-color: yellowgreen;
+     height: 90%;
+     width: 13%;
+     float: left;
+ }
+
+ #div_content{
+     background-color: whitesmoke;
+     height: 85%;
+ }
+
+
+ #div_tail{
+     background-color: aqua;
+     height: 5%;
+ }
